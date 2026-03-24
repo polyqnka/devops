@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  minecraft:
+    image: itzg/minecraft-server:java17
+    container_name: mc-server
+    ports:
+      - 25565:25565 
+    environment:
+      EULA: "TRUE"
+      MEMORY: "2G"
+      TYPE: "PAPER"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "Jotnom95"
+    volumes: 
+      - ./server:/data
+      - ./logs:/logs
+      - ./backups:/backups
+    deploy: 
+      resources:
+        limits:
+          cpus: "1.5"
+          memory: "4G"
+    networks:
+      - mcnet
+
+backend: 
+  build: ./backend
+  container_name: mc-backend
+  restart: unless-stopped
+  ports: 
+    - "8000:8000"
+  environment:
+    MC_HOST: "mc-server"
+    MC_PORT: 25565
+  networks:
+    - mcnet
+
+networks: 
+  mcnet:
+    driver: bridge
+
+
+  
