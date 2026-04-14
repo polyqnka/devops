@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  index.html: |
+    <html>
+      <head><title>Lab2</title></head>
+      <body>
+        <h1>lab2</h1>
+      </body>
+    </html>
