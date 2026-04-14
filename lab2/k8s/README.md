@@ -85,3 +85,8 @@ spec:
 
 Прописав команду `minikube service hello-service --url` окаазалась в браузере. nginx работает
 [image](/lab2/k8s/images/final.png)
+
+
+
+ps вот тортик, который я подарила своему парню на др в прошлом месяце :))). он тоже девопс 
+[image](/lab2/k8s/images/bday.jpg)
